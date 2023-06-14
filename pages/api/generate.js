@@ -29,7 +29,7 @@ export default async function (req, res) {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: generatePrompt(animal),
-      temperature: 0.6,
+      temperature: 1.5,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
@@ -51,12 +51,12 @@ export default async function (req, res) {
 function generatePrompt(animal) {
   const capitalizedAnimal =
     animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
+  return `Suggest three names for a communist animal.
 
 Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
+Names: Chairman Meow, Purr-manent Revolution, Comrade Fluff
 Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
+Names: Laika the Space Dog, Karl Barks, Red Paw
 Animal: ${capitalizedAnimal}
 Names:`;
 }
