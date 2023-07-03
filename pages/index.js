@@ -54,7 +54,15 @@ export default function Home() {
           />
           <input type="submit" value="Generate advice" />
         </form>
-        <div className={styles.result}>{result}</div>
+        {/* <div className={styles.result}>{result}</div> */}
+        
+        {result&&(<div className={styles.result}>
+          <h3>Name: {result.plantName||""}</h3>
+          <p>Description: {result.plantDescription||""}</p>
+          <p>Care: {result.plantCare||""}</p>
+          <p>Coldest survivable temperature: {result.plantColdestTemp||""}</p>
+          </div>)
+          }
       </main>
     </div>
   );
